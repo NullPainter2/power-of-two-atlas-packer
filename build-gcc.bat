@@ -1,0 +1,1 @@
+g++ -Wswitch src/main.cpp -o exe/main.exe
