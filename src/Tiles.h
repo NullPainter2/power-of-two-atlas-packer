@@ -53,25 +53,29 @@ struct Tiles
         char texels[MAX_SIZE / RESCALE][MAX_SIZE / RESCALE];
 
 
-        // init
+        // Init
         {
             // background
 
             for (int y = 0; y < SIZE; y++)
+            {
                 for (int x = 0; x < SIZE; x++)
                 {
                     texels[y][x] = ' ';
                 }
+            }
 
             // set normal positions
 
             for (Tile& tile : tiles)
             {
                 for (int y = 0; y < tile.size / RESCALE; y++)
+                {
                     for (int x = 0; x < tile.size / RESCALE; x++)
                     {
                         texels[y + tile.y / RESCALE][x + tile.x / RESCALE] = tile.color;
                     }
+                }
             }
         }
 
@@ -81,6 +85,8 @@ struct Tiles
         printf("|                   |\n");
         printf("+-------------------+\n");
 
+
+        // Draw board
         {
             // draw flipped
 
@@ -111,6 +117,7 @@ struct Tiles
             printf("\n");
         }
 
+        // Draw added tiles
         {
             printf("Made by adding these tiles (resulting positions):\n");
             for (Tile& tile : tiles)
