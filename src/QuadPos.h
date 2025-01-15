@@ -201,7 +201,9 @@ struct QuadPos
         }
         
         _DebugPrint("before matching resolution");
+        
         _MatchTheResolution(addedSize);
+        
         _DebugPrint("after correcting the resolution");
 
         // Current tile position is always correct, unless it is invalid.
@@ -209,6 +211,7 @@ struct QuadPos
         _SetTilePosition( tileX, tileY ); 
 
         _Increment();
+        
         _DebugPrint("after incrementing");
 
         return true;
