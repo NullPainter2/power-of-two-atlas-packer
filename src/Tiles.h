@@ -29,7 +29,7 @@ struct Tiles
         Tile tile = {};
         tile.color = color;
         tile.size = wantedSize;
-        if(!_quadPos.Add(wantedSize, &tile))
+        if(!_quadPos.Add(wantedSize, &( tile.x ), &( tile.y )))
         {
             Debug::PrintF("Failed to add the tile!\n");
         }

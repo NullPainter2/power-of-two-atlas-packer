@@ -108,12 +108,12 @@ struct QuadPos
         assert(newSize == currentQuadSize);
     }
 
-    void _SetTilePosition( Tile * tile )
+    void _SetTilePosition( int * tileX, int * tileY )
     {
         // The counter is at the resolution of the added tile. Otherwise something is wrong.
 
-        tile->x = 0;
-        tile->y = 0;
+        *tileX = 0;
+        *tileY = 0;
         
         //
         //   ^ y
@@ -132,11 +132,11 @@ struct QuadPos
         {
             if( digit == 1 || digit == 3 )
             {
-                tile->x += size; 
+                *tileX += size;
             }
             if( digit == 2 || digit == 3 )
             {
-                tile->y += size;
+                *tileY += size;
             }
 
             size /= 2;
@@ -186,7 +186,7 @@ struct QuadPos
         }
     }
     
-    bool Add(int addedSize, Tile * outTile )
+    bool Add(int addedSize, int * tileX, int * tileY )
     {
         assert(addedSize <= currentQuadSize);
         assert(addedSize > 0);
@@ -206,7 +206,7 @@ struct QuadPos
 
         // Current tile position is always correct, unless it is invalid.
         // There is space, because added tile is always <= than the resolution.
-        _SetTilePosition( outTile ); 
+        _SetTilePosition( tileX, tileY ); 
 
         _Increment();
         _DebugPrint("after incrementing");
