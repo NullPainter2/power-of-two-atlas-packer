@@ -212,12 +212,5 @@ struct QuadPos
         _DebugPrint("after incrementing");
 
         return true;
-    }
-
-    bool _debugPrintEnabled = false;
-
-    void EnableDebugPrint(bool enabled)
-    {
-        _debugPrintEnabled = enabled;
-    }        
+    }    
 };    
